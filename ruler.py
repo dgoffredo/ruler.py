@@ -24,7 +24,7 @@ class EmptyForm(Exception):
     pass
 
 def read(s):
-    """This is not quite a full parser, since it returns only compisitions of
+    """This is not quite a full parser, since it returns only compositions of
     str and list, but it's close to a parser. It doesn't know, for example,
     the difference between foo and :foo. It treats them as "foo" and ":foo",
     respectively. Identification of placeholders (like :foo) is done when
@@ -149,7 +149,7 @@ class Rule:
         transformed copy of `form`. Otherwise return `None`.
         """
         # Reset our placeholders (if we have any) so that in the comparison
-        # that follows, a placeholder can enforce that multiple occurrances
+        # that follows, a placeholder can enforce that multiple occurrences
         # of it must be the same to be considered a match.
         for placeholder in self._placeholders.values():
             placeholder.reset()
