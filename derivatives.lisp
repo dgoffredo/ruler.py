@@ -35,3 +35,5 @@
 (defrule (+ (neg :x) :x) 0)
 (defrule (exp 0) 1)
 (defrule (log 1) 0)
+(defrule (d 1) 0)
+(defrule (d 0) 0)
