@@ -64,9 +64,6 @@ def form2str(form):
                 str(form) + " is neither a list nor a str, but a " + str(t)
         return form
 
-def regurgitate(s):
-    return form2str(read(form))
-
 class Placeholder:
     """Represents a placeholder in a rule pattern. Will compare equal to
     anything at first, but then will compare equal to other things only
@@ -194,7 +191,8 @@ def applyRules(form, rules):
             return applyRules(applied, rules)
 
     # Now that we no longer match any rules, check the children
-    # (if we have any).
+    # (if we have any). If any of the children changed, then we
+    # have to re-roll since we ourselves might now match a rule.
     if type(form) is list:
         appliedChildren = [applyRules(f, rules) for f in form]
         if appliedChildren != form:
